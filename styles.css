@@ -23,26 +23,31 @@ Jean-Luc typeface Copyright (c) 2010 Atelier Carvalho Bernau
     src: url('./includes/JeanLuc-Webfonts/jeanlucweb-bold.woff')
 }
 
+html{
+    scroll-behavior: smooth;
+    padding: 0;
+}
+
 body {
-    background-color: #282223;
+    background-color: #161615;
     padding: 0;
     margin: 0;
     font-family: 'Rubik', sans-serif;
     scrollbar-width: thin;
-   
 }
+
 ::-webkit-scrollbar {
     width: 10px;
-    background-color: transparent;
+    background-color: #161515;
 }
+
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: transparent;
+    -webkit-box-shadow: inset 0 0 6px #3a3232
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: gray;
-  border-radius: 10px;
+    background-color: gray;
+    border-radius: 10px;
 }
 
 .container {
@@ -71,27 +76,31 @@ body {
     font-size: 9.5cqw;
 }
 
+.logo p a {
+    text-decoration: none;
+    color: inherit;
+}
+
 nav {
     margin: 0;
     padding: 10px 0px 0px 0px;
     position: sticky;
     top: 0px;
-    z-index: 1;
-    /* backdrop-filter: blur(5px) grayscale(75%) contrast(350%); */
+    z-index: 20;
 }
 
 .menu {
-    margin:8px 4% 8px 0px;
+    margin: 8px 4% 8px 0px;
     padding: 20px;
     display: flex;
     justify-content: flex-end;
     color: white;
 }
 
-a {
+.nav-item a {
     text-decoration: none;
     color: inherit;
-    text-shadow: 1px 1px 2px #110504, 1px 1px 0.6em  #110504bd , 1px 1px 1.3em  #110504bd;
+    text-shadow: 1px 1px 2px #110504, 1px 1px 0.6em #110504bd, 1px 1px 1.3em #110504bd;
 }
 
 .nav-item {
@@ -101,12 +110,15 @@ a {
     list-style-type: none;
 }
 
+.spacer{
+    height:36vw;
+}
+
 main {
     margin: 0;
 }
 
 .video {
-    margin-top: 35%;
     display: flex;
     justify-content: center;
     background-color: #110504;
@@ -127,7 +139,7 @@ main {
 
 .second {
     background-image: url(/includes/images/sinaive2.jpg);
-    background-size:contain;
+    background-size: contain;
     margin: 0;
     padding: 8% 2%;
 }
@@ -140,49 +152,93 @@ main {
     max-width: 2400px;
 }
 
+/* canvas js effect heavy */
+/* #full-screen-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    pointer-events: none;
+} */
+/* gif */
+#noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 16;
+    pointer-events: none;
+    display: none;
+}
+
+.fullscreen-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 14%;
+}
+
 .albums {
-    max-width: 1236px;
+    max-width: 1490px;
     display: flex;
     flex-wrap: wrap;
-    justify-content:flex-start;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 60px;
     height: fit-content;
     margin: 100px 0px;
     padding: 30% 0px 500px 0px;
+    overflow: hidden;
 }
 
 .album {
+    flex-basis:fill;
     margin: 0;
     padding: 0;
     height: fit-content;
 }
 
 .album-cover {
-    width: 300px;
-    height:  300px;
+    max-width: 295px;
+    height: 295px;
 }
-.placeholder-album{
+
+.album-back-cover {
+    opacity: 90%;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 18;
+}
+
+.placeholder-album {
     display: none;
 }
 
-@media (max-width: 1285px){
+@media (max-width: 1428px) {
     .album-cover {
-        max-width: 250px;
-        max-height: 250px;
+        max-width: 258px;
+        max-height: 258px;
     }
 
-}
-
-@media (max-width: 1100px){
-    .albums{
-        padding:5%;
+    .albums {
+        padding: 5%;
         height: 800px;
         justify-content: space-around;
     }
-    #parallax{
+
+    #parallax {
         justify-content: center;
     }
-    .placeholder-album{
+
+    .placeholder-album {
         display: block;
         visibility: hidden;
     }
@@ -193,7 +249,7 @@ main {
     height: 1000px;
 }
 
-#copy{
+#copy {
     height: 50px;
     background-color: #110504;
     display: flex;
@@ -201,8 +257,9 @@ main {
     justify-content: center;
 
 }
-#copy p{
-    color:white;
+
+#copy p {
+    color: white;
     position: relative;
     text-align: center;
 
@@ -210,21 +267,23 @@ main {
 
 /* Página About: */
 
-.about-image{
-    background-image: url(includes/images/para-dasein.jpeg);
-    background-size:auto;
+.about-image {
+    background-image: url(includes/images/about_Sinaive.jpeg);
+    background-size: auto;
     height: 1500px;
     margin: 0;
 
 }
-.about-text{
-    float:right;
+
+.about-text {
+    float: right;
     max-width: 750px;
-    background-color:#e19f2da2;
+    background-color: #e19f2da2;
     margin: 0% 5%;
-    padding:3%;
+    padding: 3%;
 }
-.about-text:before{
+
+.about-text:before {
     content: "";
     display: block;
     width: 15em;
@@ -232,8 +291,28 @@ main {
     background: #740007;
 }
 
-.jean-luc{
-    font-family:'JeanLucWeb-Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+.jean-luc {
+    font-family: 'JeanLucWeb-Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 80px;
     margin: 20px auto;
+}
+
+footer{
+    background-color: #110504;
+    margin: 0px;
+    position: relative;
+    bottom: 0px;
+}
+
+.social-container{
+    background-color: #110504;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.social{
+    width: 2.5em;
+    padding: 1em;
 }

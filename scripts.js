@@ -60,16 +60,20 @@ function stopVideo() {
   player.stopVideo();
 }
 
-// This code creates a parallax effect on the album items
-
 const parallaxBackground = document.querySelector("#parallax");
-const albums = document.querySelector(".albums");
+const albumCovers = document.querySelectorAll(".album-cover");
+const noise = document.getElementById("noise");
+const menu = document.querySelector(".menu");
+const navItems = document.querySelectorAll(".nav-item");
+const nav = document.querySelector("nav");
+const logo = document.querySelector(".logo p");
+const container = document.querySelector(".container");
 
-const parallax = function (e) {};
+// This code creates a parallax effect on the album items
 
 let scrollStart = window.scrollY;
 
-const doThis = () => {
+const parallax = () => {
   if (scrollStart > 860) {
     if (scrollStart < window.scrollY) {
       parallaxBackground.scrollTop += 3;
@@ -81,35 +85,25 @@ const doThis = () => {
 };
 
 if (parallaxBackground) {
-  parallaxBackground.addEventListener("scroll", parallax);
-  window.addEventListener("scroll", doThis);
+  window.addEventListener("scroll", parallax);
 }
 
 //change logo size depending on the page
 
 if (window.location.pathname !== "/index.html") {
-  const logo = document.querySelector(".logo p");
   logo.style.fontSize = "7cqw";
   logo.style.margin = "0 4% 4% 4%";
 }
 
-console.log(window.location.pathname);
-
 //About section shorten height
 
 if (window.location.pathname === "/About.html") {
-  const container = document.querySelector(".container");
   container.style.minHeight = "auto";
 }
 
-//blur navigation on scroll
-
-const menu = document.querySelector(".menu");
-const navItems = document.querySelectorAll(".nav-item");
-const blurItems = document.querySelectorAll(".blur");
+//Blur navigation on scroll
 
 window.addEventListener("scroll", function () {
-  const nav = document.querySelector("nav");
   const scrollPosition = window.scrollY;
   const padding = 10;
   const contrast = Math.max(100, scrollPosition / 9);
@@ -126,5 +120,51 @@ window.addEventListener("scroll", function () {
   navItems.forEach((navItem) => {
     navItem.style.paddingTop = `${value}px`;
     navItem.style.paddingBottom = `${value}px`;
+  });
+});
+
+//Album back covers mouse effect and noise
+
+const backCoverEffect = (e) => {
+  noise.style.display = "block";
+  const targetImage = e.target;
+  const nextSibling = e.target.nextElementSibling;
+
+  const targetRect = targetImage.getBoundingClientRect();
+  const siblingRect = nextSibling.getBoundingClientRect();
+
+  const targetCenterX = targetRect.left + targetRect.width / 2;
+  const targetCenterY = targetRect.top + targetRect.height / 2;
+
+  const mouseY = e.clientY;
+  const mouseX = e.clientX;
+
+  const offsetX = mouseX - targetCenterX;
+  const offsetY = mouseY - targetCenterY;
+
+  const moveX = -offsetX * 0.1;
+  const moveY = -offsetY * 0.1;
+
+  const siblingCenterX = targetCenterX - siblingRect.width / 2 + moveX;
+  const siblingCenterY = targetCenterY - siblingRect.height / 2 + moveY;
+
+  nextSibling.style.left = siblingCenterX + "px";
+  nextSibling.style.top = siblingCenterY + "px";
+
+  if (nextSibling) {
+    if (nextSibling.style.visibility !== "visible") {
+      nextSibling.style.visibility = "visible";
+    }
+  }
+};
+
+albumCovers.forEach((albumCover) => {
+  albumCover.addEventListener("mousemove", backCoverEffect);
+  albumCover.addEventListener("mouseleave", (e) => {
+    const nextSibling = e.target.nextElementSibling;
+    if (nextSibling) {
+      nextSibling.style.visibility = "hidden";
+      noise.style.display = "none";
+    }
   });
 });

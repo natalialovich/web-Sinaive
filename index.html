@@ -15,18 +15,22 @@
     <script src="./scripts.js" defer></script>
   </head>
   <body>
+    <div id="noise">
+      <img src="/includes/noise.gif" class="fullscreen-gif" />
+    </div>
     <div class="container first">
       <nav class="navigation-container">
         <ul class="menu">
-          <li class="nav-item"><a href="index.html">Discography</a></li>
+          <li class="nav-item"><a href="#discography">Discography</a></li>
           <li class="nav-item"><a href="#">Videos</a></li>
           <li class="nav-item"><a href="About.html">About</a></li>
           <li class="nav-item"><a href="#">Shop</a></li>
         </ul>
       </nav>
       <div class="logo">
-        <p>SINAÏVE</p>
+        <p><a href="index.html">SINAÏVE</a></p>
       </div>
+      <div class="spacer"></div>
       <main>
         <section class="video" autoplay></section>
         <div class="video_wrapper">
@@ -34,12 +38,17 @@
         </div>
         <div class="second">
           <div id="parallax">
-            <div class="albums">
+            <div id="discography" class="albums">
               <div class="album">
                 <img
                   src="/includes/images/répétition.jpg"
                   alt="sinaïve album répétition"
                   class="album-cover"
+                />
+                <img
+                  src="/includes/images/para-repetition.jpg"
+                  alt="sinaïve album répétition"
+                  class="album-back-cover"
                 />
               </div>
               <div class="album">
@@ -48,12 +57,22 @@
                   alt="sinaïve album super-45-t"
                   class="album-cover"
                 />
+                <img
+                  src="/includes/images/para-Super45.jpg"
+                  alt="sinaïve album répétition"
+                  class="album-back-cover"
+                />
               </div>
               <div class="album">
                 <img
                   src="/includes/images/reprise-party.jpg"
                   alt="sinaïve album reprise-party"
                   class="album-cover"
+                />
+                <img
+                  src="/includes/images//para-reprise-party.jpg"
+                  alt="sinaïve album répétition"
+                  class="album-back-cover"
                 />
               </div>
               <div class="album">
@@ -62,12 +81,22 @@
                   alt="sinaïve album révélation-permanente-Bootleg"
                   class="album-cover"
                 />
+                <img
+                  src="/includes/images/para-rpbootleg.jpg"
+                  alt="sinaïve album répétition"
+                  class="album-back-cover"
+                />
               </div>
               <div class="album">
                 <img
                   src="/includes/images/dasein.jpg"
                   alt="sinaïve album dasein"
                   class="album-cover"
+                />
+                <img
+                  src="/includes/images/para-dasein.jpg"
+                  alt="sinaïve album répétition"
+                  class="album-back-cover"
                 />
               </div>
               <div class="album">
@@ -76,12 +105,22 @@
                   alt="sinaïve album tabula-rasa-EP"
                   class="album-cover"
                 />
+                <img
+                  src="/includes/images/para-tabularasa.jpg"
+                  alt="sinaïve album répétition"
+                  class="album-back-cover"
+                />
               </div>
               <div class="album">
                 <img
                   src="/includes/images/poptones.jpg"
                   alt="sinaïve album poptones-EP"
                   class="album-cover"
+                />
+                <img
+                  src="/includes/images/para-Poptones.jpg"
+                  alt="sinaïve album répétition"
+                  class="album-back-cover"
                 />
               </div>
               <div class="album placeholder-album">
@@ -101,15 +140,21 @@
             </div>
           </div>
         </div>
-        <div class="new"></div>
+        <!-- <div class="new"></div> -->
         <!-- <video autoplay muted controls>
           <source src="./includes/video/Sinaïve-Éternel -Retour.mp4" type="video/mp4"></video> -->
       </main>
-      <footer>
-        <div id="copy">
-          <p>&copy; 2023 Sinaïve. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
+    <footer>
+      <div class="social-container">
+        <a href="https://www.youtube.com/@sinaive" target="_blank"><img src="/includes/images/youtube.svg" class="social"></a>
+        <a href="https://twitter.com/SinaiveOfficiel" target="_blank"><img src="/includes/images/x-twitter.svg"alt="twitter-x" class="social"></a>
+        <a href="https://www.facebook.com/SinaiveOfficiel" target="_blank"><img src="/includes/images/facebook.svg" alt="facebook" class="social"></a>
+        <a href="https://www.instagram.com/sinaiveofficiel/" target="_blank"><img src="/includes/images/instagram.svg" alt="instagram" class="social"></a>
+      </div>
+      <div id="copy">
+        <p>&copy; 2023 Sinaïve. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
