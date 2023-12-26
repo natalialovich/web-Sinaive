@@ -28,9 +28,13 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 let player;
 
+let isMobile = window.innerWidth < 666;
 function onYouTubeIframeAPIReady() {
+
+  let playerHeight = isMobile ? 460 : 720; // Establece la altura deseada para móviles y no móviles
+
   player = new YT.Player("player", {
-    height: "720",
+    height: playerHeight,
     width: "1280",
     videoId: "vKWYBvbiM8Y",
     playerVars: {
@@ -68,6 +72,7 @@ const navItems = document.querySelectorAll(".nav-item");
 const nav = document.querySelector("nav");
 const logo = document.querySelector(".logo p");
 const container = document.querySelector(".container");
+const btnMobile = document.getElementById("vinyl-record");
 
 // This code creates a parallax effect on the album items
 
@@ -103,25 +108,41 @@ if (window.location.pathname === "/About.html") {
 
 //Blur navigation on scroll
 
-window.addEventListener("scroll", function () {
-  const scrollPosition = window.scrollY;
-  const padding = 10;
-  const contrast = Math.max(100, scrollPosition / 9);
-  const blur = Math.min(4, scrollPosition / 400);
-
-  let value = Math.max(1, padding - (scrollPosition / 100).toFixed(2));
-
-  nav.style.backdropFilter = `blur(${blur}px) grayscale(75%) contrast(${contrast}%)`;
-  nav.style.paddingTop = `${value}px`;
-  nav.style.paddingBottom = `${value}px`;
-  menu.style.paddingTop = `${value}px`;
-  menu.style.paddingBottom = `${value}px`;
-
-  navItems.forEach((navItem) => {
-    navItem.style.paddingTop = `${value}px`;
-    navItem.style.paddingBottom = `${value}px`;
+if (!isMobile) {
+  window.addEventListener("scroll", function () {
+    const scrollPosition = window.scrollY;
+    const padding = 10;
+    const contrast = Math.max(100, scrollPosition / 9);
+    const blur = Math.min(4, scrollPosition / 400);
+  
+    let value = Math.max(1, padding - (scrollPosition / 100).toFixed(2));
+  
+    nav.style.backdropFilter = `blur(${blur}px) grayscale(75%) contrast(${contrast}%)`;
+    nav.style.paddingTop = `${value}px`;
+    nav.style.paddingBottom = `${value}px`;
+    menu.style.paddingTop = `${value}px`;
+    menu.style.paddingBottom = `${value}px`;
+  
+    navItems.forEach((navItem) => {
+      navItem.style.paddingTop = `${value}px`;
+      navItem.style.paddingBottom = `${value}px`;
+    });
   });
-});
+}
+
+
+
+//Mobile menu button
+
+btnMobile.addEventListener('click', toggleMenu);
+
+function toggleMenu() {
+
+  nav.classList.toggle('active-mobile')
+
+}
+
+
 
 //Album back covers mouse effect and noise
 
