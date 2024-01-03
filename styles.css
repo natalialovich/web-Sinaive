@@ -97,7 +97,7 @@ nav {
     list-style-type: none;
 }
 
-.dot-nav{
+.dot-nav {
     display: none;
     background-color: white;
     width: 10px;
@@ -130,7 +130,7 @@ nav {
 
 .logo p {
     margin: 100px 0px 15% 0px;
-    font-size: 9.5cqw;
+    font-size: 9cqw;
 }
 
 .logo p a {
@@ -139,8 +139,8 @@ nav {
 }
 
 .logo-2 {
-    padding-left: 10%;
-    padding-top: 12vw;
+    padding-left: 12%;
+    padding-top: 11vw;
     font-family: 'JeanLucWeb-Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: #740007;
     container-type: inline-size;
@@ -148,7 +148,7 @@ nav {
 
 .logo-2 p {
     margin: 0;
-    font-size: 7cqw;
+    font-size: 6.5cqw;
 }
 
 .logo-2 p a {
@@ -178,21 +178,8 @@ main {
     width: 100%;
 }
 
-#videos-section{
+#videos-section {
     padding: 0;
-}
-
-.video-container{
-    padding:10%;
-}
-
-.videoWrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    justify-content: center;
-    align-items: center
 }
 
 .second {
@@ -210,16 +197,6 @@ main {
     max-width: 2400px;
 }
 
-/* canvas js effect heavy */
-/* #full-screen-noise {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 15;
-    pointer-events: none;
-} */
 /* gif */
 #noise {
     position: fixed;
@@ -278,6 +255,7 @@ main {
 .album-back-cover {
     opacity: 90%;
     position: fixed;
+    width: 440px;
     top: 30%;
     left: 30%;
     visibility: hidden;
@@ -294,22 +272,6 @@ main {
     height: 1000px;
 }
 
-#copy {
-    height: 50px;
-    background-color: #110504;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-#copy p {
-    color: white;
-    position: relative;
-    text-align: center;
-
-}
-
 /* Página About: */
 
 .about-image {
@@ -318,13 +280,6 @@ main {
     height: 149vh;
     margin: 0;
 
-}
-
-.third{
-    background-image: url(includes/images/sinaive-background-3.jpg);
-    background-size: auto;
-    background-position:top 3% right 0%;
-    margin: 0;
 }
 
 .about-text {
@@ -349,6 +304,28 @@ main {
     margin: 20px auto;
 }
 
+/* videos page */
+
+.video-container {
+    padding: 10%;
+}
+
+.videoWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center
+}
+
+.third {
+    background-image: url(includes/images/sinaive-background-3.jpg);
+    background-size: auto;
+    background-position: top 3% right 0%;
+    margin: 0;
+}
+
 footer {
     background-color: #110504;
     margin: 0px;
@@ -365,15 +342,36 @@ footer {
 }
 
 .social {
-    width: 2.5em;
-    padding: 1em;
+    width: 2em;
+    padding: 0.8em;
+}
+.apple {
+    width: 1.9em;
+    padding-top: 5px;
+}
+
+#copy {
+    height: 50px;
+    background-color: #110504;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#copy p {
+    color: white;
+    position: relative;
+    text-align: center;
+    font-size: 10pt;
+
 }
 
 .mobile {
     display: none;
 }
 
-@media (max-width: 1428px) {
+@media (max-width: 1480px) {
     .album-cover {
         max-width: 258px;
         max-height: 258px;
@@ -385,6 +383,10 @@ footer {
         justify-content: space-around;
     }
 
+    .album-back-cover {
+        width: 380px;
+    }
+
     #parallax {
         justify-content: center;
     }
@@ -394,6 +396,18 @@ footer {
         visibility: hidden;
     }
 
+    .about-text p {
+        font-size: 11pt;
+    }
+
+    .jean-luc {
+        font-size: 4em;
+        margin: 10px auto 0px;
+    }
+
+    .nav-item {
+        font-size: 1.5em;
+    }
 }
 
 
