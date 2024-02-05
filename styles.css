@@ -128,12 +128,12 @@ nav {
     container-type: inline-size;
 }
 
-.logo p {
+.logo h1 {
     margin: 100px 0px 15% 0px;
     font-size: 9cqw;
 }
 
-.logo p a {
+.logo h1 a {
     text-decoration: none;
     color: inherit;
 }
@@ -146,12 +146,12 @@ nav {
     container-type: inline-size;
 }
 
-.logo-2 p {
+.logo-2 h1 {
     margin: 0;
     font-size: 6.5cqw;
 }
 
-.logo-2 p a {
+.logo-2 h1 a {
     text-decoration: none;
     color: inherit;
 }
@@ -264,6 +264,19 @@ main {
     transition: opacity 0.5s ease-in;
 }
 
+.text-album{
+    height: 0px;
+    margin: 0%;
+    padding: 0%;
+    color:white;
+    position: relative;
+    bottom:0;
+    left: 1ex;
+    z-index: 55;
+    text-shadow: 1px 1px 4px #110504;
+    font-size: 1.2em;
+    visibility: hidden;
+}
 .placeholder-album {
     display: none;
 }
@@ -460,7 +473,7 @@ footer {
         display: block;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.7s ease-in-out, right 0.9s ease-in-out;
+        transition: max-height 0.7s, right 0.9s;
     }
 
     nav.active-mobile {
@@ -534,7 +547,7 @@ footer {
         padding: 2%;
     }
 
-    .logo-2 p {
+    .logo-2 h1 {
         padding-bottom: 10%;
         font-size: 3.2em;
     }

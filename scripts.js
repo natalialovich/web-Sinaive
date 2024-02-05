@@ -21,7 +21,6 @@ function onYouTubeIframeAPIReady() {
   });
 
   function createYouTubePlayer(videoInfo) {
-    console.log(videoInfo);
 
     player1 = new YT.Player(videoInfo, {
       height: playerHeight,
@@ -181,6 +180,7 @@ const backCoverEffect = (e) => {
   nextSibling.style.top = siblingCenterY + "px";
 
   nextSibling.style.visibility = "visible";
+  nextSibling.nextElementSibling.style.visibility = "visible";
 };
 
 function mobileAlbum(e) {
@@ -194,14 +194,12 @@ function mobileAlbum(e) {
   const targetCenterX = targetRect.left + targetRect.width / 10;
   const targetCenterY = targetRect.top + targetRect.height / 10;
 
-  const siblingCenterX = targetCenterX;
-  const siblingCenterY = targetCenterY;
-
   nextSibling.style.width = "250px";
-  nextSibling.style.left = siblingCenterX + "px";
-  nextSibling.style.top = siblingCenterY + "px";
+  nextSibling.style.left = targetCenterX + "px";
+  nextSibling.style.top = targetCenterY + "px";
 
   nextSibling.style.visibility = "visible";
+  nextSibling.nextElementSibling.style.visibility = "visible";
 }
 
 albumCovers.forEach((albumCover) => {
@@ -211,6 +209,7 @@ albumCovers.forEach((albumCover) => {
       const nextSibling = e.target.parentNode.nextElementSibling;
       if (nextSibling) {
         nextSibling.style.visibility = "hidden";
+        nextSibling.nextElementSibling.style.visibility = "hidden";
         noise.style.display = "none";
       }
     });
@@ -220,6 +219,7 @@ albumCovers.forEach((albumCover) => {
       const nextSibling = e.target.parentNode.nextElementSibling;
       if (nextSibling) {
         nextSibling.style.visibility = "hidden";
+        nextSibling.nextElementSibling.style.visibility = "hidden";
         noise.style.display = "none";
       }
     });
