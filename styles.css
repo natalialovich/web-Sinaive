@@ -473,7 +473,7 @@ footer {
         display: block;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.7s, right 0.9s;
+        transition: max-height 0.7s, right 0.7s;
     }
 
     nav.active-mobile {
