@@ -311,6 +311,14 @@ main {
     background: #740007;
 }
 
+.separator:before {
+    content: "";
+    display: block;
+    width: 15em;
+    height: 2px;
+    background: #740007;
+}
+
 .jean-luc {
     font-family: 'JeanLucWeb-Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 80px;
